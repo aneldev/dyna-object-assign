@@ -1,1 +1,1 @@
-export { dynaObjectAssign, } from "./dynaObjectAssign";
+export { dynaObjectAssign, dynaCopyObjectValue, dynaCopyObjectValues, } from "./dynaObjectAssign";

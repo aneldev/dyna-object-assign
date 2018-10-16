@@ -92,18 +92,18 @@ exports.dynaObjectAssign = function () {
     objs.forEach(function (obj) {
         if (obj === null || obj === undefined)
             return;
-        copyObjectValues.apply(void 0, [obj, output].concat(Object.keys(obj)));
+        exports.dynaCopyObjectValues.apply(void 0, [obj, output].concat(Object.keys(obj)));
     });
     return output;
 };
-var copyObjectValues = function (fromObj, toObj) {
+exports.dynaCopyObjectValues = function (fromObj, toObj) {
     var propNames = [];
     for (var _i = 2; _i < arguments.length; _i++) {
         propNames[_i - 2] = arguments[_i];
     }
-    propNames.forEach(function (propName) { return copyObjectValue(fromObj, toObj, propName); });
+    propNames.forEach(function (propName) { return exports.dynaCopyObjectValue(fromObj, toObj, propName); });
 };
-var copyObjectValue = function (fromObj, toObj, propName) {
+exports.dynaCopyObjectValue = function (fromObj, toObj, propName) {
     if (fromObj[propName] !== undefined)
         toObj[propName] = fromObj[propName];
 };
@@ -118,6 +118,8 @@ var copyObjectValue = function (fromObj, toObj, propName) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var dynaObjectAssign_1 = __webpack_require__(0);
 exports.dynaObjectAssign = dynaObjectAssign_1.dynaObjectAssign;
+exports.dynaCopyObjectValue = dynaObjectAssign_1.dynaCopyObjectValue;
+exports.dynaCopyObjectValues = dynaObjectAssign_1.dynaCopyObjectValues;
 
 
 /***/ })
