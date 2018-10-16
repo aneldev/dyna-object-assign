@@ -1,6 +1,6 @@
 {
   "name": "dyna-object-assign",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Assign objects like `Object.assign` but it doesn't override undefined values. It doesn't mutate the object it returns a new one.",
   "repository": {
     "type": "git",
