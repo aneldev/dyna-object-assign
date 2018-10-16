@@ -97,6 +97,8 @@ exports.dynaObjectAssign = function () {
     return output;
 };
 exports.dynaCopyObjectValues = function (fromObj, toObj) {
+    if (fromObj === void 0) { fromObj = {}; }
+    if (toObj === void 0) { toObj = {}; }
     var propNames = [];
     for (var _i = 2; _i < arguments.length; _i++) {
         propNames[_i - 2] = arguments[_i];
