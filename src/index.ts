@@ -1,0 +1,3 @@
+export {
+  dynaObjectAssign,
+} from "./dynaObjectAssign";
