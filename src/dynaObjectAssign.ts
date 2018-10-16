@@ -7,7 +7,7 @@ export const dynaObjectAssign = <T>(...objs: any[]): T => {
   return output;
 };
 
-export const dynaCopyObjectValues = (fromObj: any, toObj: any, ...propNames: string[]): void => {
+export const dynaCopyObjectValues = (fromObj: any = {}, toObj: any = {}, ...propNames: string[]): void => {
   propNames.forEach((propName: string) => dynaCopyObjectValue(fromObj, toObj, propName));
 };
 
