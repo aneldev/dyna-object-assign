@@ -1,4 +1,4 @@
-export const dynaObjectAssign = <T = any>(...objs: Partial<T>[]): T => {
+export const dynaObjectAssign = <T = any>(...objs: (Partial<T> | null | undefined)[]): T => {
   const output: any = {};
   objs.forEach((obj: any) => {
     if (obj === null || obj === undefined) return;
