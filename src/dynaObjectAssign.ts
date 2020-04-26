@@ -1,16 +1,16 @@
-export const dynaObjectAssign = <T>(...objs: any[]): T => {
+export const dynaObjectAssign = <T = any>(...objs: Partial<T>[]): T => {
   const output: any = {};
   objs.forEach((obj: any) => {
     if (obj === null || obj === undefined) return;
-    dynaCopyObjectValues(obj, output, ...Object.keys(obj));
+    dynaCopyObjectValues<Partial<T>, Partial<T>>(obj, output, ...Object.keys(obj));
   });
   return output;
 };
 
-export const dynaCopyObjectValues = (fromObj: any = {}, toObj: any = {}, ...propNames: string[]): void => {
-  propNames.forEach((propName: string) => dynaCopyObjectValue(fromObj, toObj, propName));
+export const dynaCopyObjectValues = <TFrom, TTo>(fromObj: TFrom, toObj: TTo, ...propNames: string[]): void => {
+  propNames.forEach((propName: string) => dynaCopyObjectValue<TFrom, TTo>(fromObj, toObj, propName));
 };
 
-export const dynaCopyObjectValue = (fromObj, toObj, propName): void => {
+export const dynaCopyObjectValue = <TFrom, TTo>(fromObj: TFrom, toObj: TTo, propName: string): void => {
   if (fromObj[propName] !== undefined) toObj[propName] = fromObj[propName];
 };

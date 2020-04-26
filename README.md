@@ -1,8 +1,10 @@
 # About
 
-Assign objects like `Object.assign` but it doesn't override undefined values. It doesn't mutate the object it returns a new one.
+Assign objects like `Object.assign` but 
+- it doesn't override with undefined values
+- it doesn't mutate the object it returns a new one.
 
-Wriiten in TypeScript, used everywhere.
+Written in TypeScript.
 
 # With `Object.assign` we have
 
@@ -18,7 +20,7 @@ Wriiten in TypeScript, used everywhere.
 { name: 'John', age: 32, address: 'Lungerstrasse 12', city: null }
 // perfect
 
-// now let's try with an undefined value
+// now let's try the objB with an undefined value
 > objB = { age: undefined, address: "Lungerstrasse 12" }
 { age: undefined, address: 'Lungerstrasse 12' }
 
@@ -42,7 +44,7 @@ Wriiten in TypeScript, used everywhere.
 
 > dynaObjectAssign(objA. objB)
 { name: 'John',
-  age: 32,                      // and not undefined!
+  age: 32,                      // it is still 32 and overriden with undefined
   address: 'Lungerstrasse 12',
   city: null }
 ```
@@ -55,11 +57,7 @@ dynaObjectAssign(objA, objB) --> {...objA, ...objB}
 
 ```
 
-# Syntax of `dynaObjectAssign`
+# dynaObjectAssign signature
 
+`dynaObjectAssign = <T>(...objs: Partial<T>[]) => T`
 
-JavaScript
-`dynaObjectAssign(...objs)`
-
-TypeScriprt
-`dynaObjectAssign<T>(...objs: any[]): T`
